@@ -1,14 +1,13 @@
 //
-//  ViewController.swift
+//  MainController.swift
 //  MY_TODO_APP
 //
 //  Created by (^ㅗ^)7 iMac on 2023/08/22.
 //
 
 import UIKit
-import Gifu
 
-class ViewController: UIViewController {
+class MainController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
