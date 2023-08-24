@@ -8,12 +8,16 @@
 import Foundation
 
 class Name {
+    // StoryBoards
+    static let todoStoryboard = "ToDo"
+    static let completionStoryboard = "Completion"
+    
     // Controllers
-    static let mainControllerIdentifier = ""
-    static let todoControllerIdentifier = ""
-    static let completionControllerIdentifier = ""
+    static let mainControllerIdentifier = "MainController"
+    static let todoControllerIdentifier = "ToDoController"
+    static let completionControllerIdentifier = "CompletionController"
     
     // Cells
-    static let todoCellIdentifier = ""
-    static let completionCellIdentifier = ""
+    static let todoCellIdentifier = "ToDoCell"
+    static let completionCellIdentifier = "CompletionCell"
 }

@@ -7,7 +7,4 @@
 
 import UIKit
 
-class ToDoCell: UITableViewCell {
-
-
-}
+class ToDoCell: UITableViewCell {}
