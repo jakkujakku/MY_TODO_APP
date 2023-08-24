@@ -11,11 +11,13 @@ class Utility {
     // StoryBoards
     static let todoStoryboard = "ToDo"
     static let completionStoryboard = "Completion"
+    static let writeToDoStoryboard = "WriteToDo"
 
     // Controllers
     static let mainControllerIdentifier = "MainController"
     static let todoControllerIdentifier = "ToDoController"
     static let completionControllerIdentifier = "CompletionController"
+    static let todoWriteController = "TodoWriteController"
 
     // Cells
     static let todoCellIdentifier = "ToDoCell"

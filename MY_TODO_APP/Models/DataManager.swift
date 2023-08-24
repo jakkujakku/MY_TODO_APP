@@ -8,25 +8,28 @@
 import Foundation
 
 class DataManager: Codable {
-    static var dataManager = [ToDoData]()
+//    static var dataManager = [dataManagerCopy0, dataManagerCopy1, dataManagerCopy2, dataManagerCopy3]
+    static var dataManager : [[ToDoData]] = []
+    static var dataManagerCopy0: [ToDoData] = []
+    static var dataManagerCopy1: [ToDoData] = []
+    static var dataManagerCopy2: [ToDoData] = []
+    static var dataManagerCopy3: [ToDoData] = []
 
-    // Userdefaults 저장
-    static func saveToUserDefaults() {
+    static func saveToUserDefaults(section: String) {
         do {
             let encodedData = try JSONEncoder().encode(dataManager)
-            UserDefaults.standard.set(encodedData, forKey: Utility.userDefaultsKey)
-            print("저장된 데이터 : \(encodedData)")
+            UserDefaults.standard.set(encodedData, forKey: "userData_section_\(section)")
+            print("\(encodedData) 저장 했습니다.")
         } catch {
             print("Error encoding data: \(error)")
         }
     }
 
-    // Userdefaults 불러오기
-    static func loadFromUserDefaults() {
-        if let encodedData = UserDefaults.standard.data(forKey: Utility.userDefaultsKey) {
+    static func loadFromUserDefaults(section: String) {
+        if let encodedData = UserDefaults.standard.data(forKey: "userData_section_\(section)") {
             do {
-                dataManager = try JSONDecoder().decode([ToDoData].self, from: encodedData)
-                print("로드 된 데이터 : \(dataManager))")
+                dataManager = try JSONDecoder().decode([[ToDoData]].self, from: encodedData)
+                print("\(dataManager) 를 불러왔습니다.")
             } catch {
                 print("Error decoding data: \(error)")
             }
@@ -38,4 +41,5 @@ class DataManager: Codable {
 struct ToDoData: Codable {
     var title: String
     var date: String
+    var section: String
 }
