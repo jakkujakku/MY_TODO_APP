@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Todo Write Controller-->
+        <scene sceneID="j9h-IK-hwm">
+            <objects>
+                <viewController storyboardIdentifier="TodoWriteController" id="aYs-an-J9X" customClass="TodoWriteController" customModule="MY_TODO_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfi-HH-cIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3Q1-C4-wc5">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vg7-LW-Qeh">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="39.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;우선순위를 정해주세요&gt;  DO : 중요하고 긴급한 일  DECIDE : 중요하지 않지만 긴급한 일  DELEGATE : 중요하지만 긴급하지 않은 일  DELETE : 중요하지도 긴급하지도 않은 일" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj8-SG-6Vl">
+                                        <rect key="frame" x="0.0" y="89.666666666666671" width="393" height="249.66666666666663"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yL-dj-dcp">
+                                        <rect key="frame" x="0.0" y="389" width="393" height="260"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYm-iP-URO">
+                                        <rect key="frame" x="0.0" y="699" width="393" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8Uz-8E-t0k"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="저장">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedSaveButton:" destination="aYs-an-J9X" eventType="touchUpInside" id="a8g-DJ-LIB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wsQ-hx-4B7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wsQ-hx-4B7" firstAttribute="bottom" secondItem="3Q1-C4-wc5" secondAttribute="bottom" id="63I-eE-zzG"/>
+                            <constraint firstItem="wsQ-hx-4B7" firstAttribute="trailing" secondItem="3Q1-C4-wc5" secondAttribute="trailing" id="Anw-rU-ntN"/>
+                            <constraint firstItem="3Q1-C4-wc5" firstAttribute="top" secondItem="wsQ-hx-4B7" secondAttribute="top" id="c3T-Iy-UAB"/>
+                            <constraint firstItem="3Q1-C4-wc5" firstAttribute="leading" secondItem="wsQ-hx-4B7" secondAttribute="leading" id="s9g-xV-XHD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="7yL-dj-dcp" id="ds9-kB-Sdv"/>
+                        <outlet property="saveButton" destination="UYm-iP-URO" id="ZwI-B2-3x6"/>
+                        <outlet property="textField" destination="vg7-LW-Qeh" id="qtQ-67-DDY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyN-18-Pmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="6"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

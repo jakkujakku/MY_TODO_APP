@@ -17,17 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="agV-eQ-gd0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="agV-eQ-gd0">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SGy-pI-kdd">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" id="SGy-pI-kdd" customClass="ToDoCell" customModule="MY_TODO_APP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="51.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGy-pI-kdd" id="6hk-WX-bCe">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밥 주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSS-xE-YT4">
+                                                    <rect key="frame" x="15" y="9.9999999999999982" width="51" height="31.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cC0-Uo-Ojx">
+                                                    <rect key="frame" x="329" y="9.9999999999999982" width="51" height="31.333333333333329"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HSS-xE-YT4" firstAttribute="leading" secondItem="6hk-WX-bCe" secondAttribute="leading" constant="15" id="485-F4-0jv"/>
+                                                <constraint firstItem="cC0-Uo-Ojx" firstAttribute="top" secondItem="6hk-WX-bCe" secondAttribute="top" constant="10" id="Nzp-vy-HKF"/>
+                                                <constraint firstAttribute="trailing" secondItem="cC0-Uo-Ojx" secondAttribute="trailing" constant="15" id="RlO-my-ulA"/>
+                                                <constraint firstItem="cC0-Uo-Ojx" firstAttribute="centerY" secondItem="6hk-WX-bCe" secondAttribute="centerY" id="ir3-Ne-FSa"/>
+                                                <constraint firstItem="HSS-xE-YT4" firstAttribute="top" secondItem="6hk-WX-bCe" secondAttribute="top" constant="10" id="rBG-je-4ag"/>
+                                                <constraint firstItem="HSS-xE-YT4" firstAttribute="centerY" secondItem="6hk-WX-bCe" secondAttribute="centerY" id="xER-wI-dSP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="isSelectedSwitch" destination="cC0-Uo-Ojx" id="saA-hD-QE7"/>
+                                            <outlet property="todoLabel" destination="HSS-xE-YT4" id="N1L-J2-FBo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
