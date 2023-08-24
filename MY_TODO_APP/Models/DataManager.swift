@@ -8,7 +8,7 @@
 import Foundation
 
 class DataManager: Codable {
-    static var dataManager = [String: ToDoData]()
+    static var dataManager = [ToDoData]()
 
     // Userdefaults 저장
     static func saveToUserDefaults() {
@@ -25,7 +25,7 @@ class DataManager: Codable {
     static func loadFromUserDefaults() {
         if let encodedData = UserDefaults.standard.data(forKey: Utility.userDefaultsKey) {
             do {
-                dataManager = try JSONDecoder().decode([String: ToDoData].self, from: encodedData)
+                dataManager = try JSONDecoder().decode([ToDoData].self, from: encodedData)
                 print("로드 된 데이터 : \(dataManager))")
             } catch {
                 print("Error decoding data: \(error)")
@@ -37,4 +37,5 @@ class DataManager: Codable {
 // ToDo - Data
 struct ToDoData: Codable {
     var title: String
+    var date: String
 }
