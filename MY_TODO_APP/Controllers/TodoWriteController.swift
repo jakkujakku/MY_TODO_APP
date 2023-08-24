@@ -37,44 +37,35 @@ class TodoWriteController: UIViewController {
 
     @IBAction func tappedSaveButton(_ sender: UIButton) {
         guard let text = textField.text else { return }
-        let todoData = ToDoData(title: text, date: dateFormatter(), section: selectedSection)
+        let todoData = ToDoData(title: text, date: Utility.dateFormatter(), section: selectedSection)
         print(selectedSection)
 
-        
         switch selectedSection {
         case "DO":
-            DataManager.dataManagerCopy0.append(todoData)
-            DataManager.dataManager = [DataManager.dataManagerCopy0, DataManager.dataManagerCopy1, DataManager.dataManagerCopy2, DataManager.dataManagerCopy3]
-            DataManager.saveToUserDefaults(section: "DO")
-            print("\(DataManager.dataManagerCopy0) - DO")
+            DataManager.doDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.doDataManager)
+            DataManager.saveToUserDefaults()
+            print("\(DataManager.doDataManager) - DO")
         case "DECIDE":
-            DataManager.dataManagerCopy1.append(todoData)
-            DataManager.dataManager = [DataManager.dataManagerCopy0, DataManager.dataManagerCopy1, DataManager.dataManagerCopy2, DataManager.dataManagerCopy3]
-            DataManager.saveToUserDefaults(section: "DECIDE")
-            print("\(DataManager.dataManagerCopy1) - DECIDE")
+            DataManager.decideDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.decideDataManager)
+            DataManager.saveToUserDefaults()
+            print("\(DataManager.decideDataManager) - DECIDE")
         case "DELEGATE":
-            DataManager.dataManagerCopy2.append(todoData)
-            DataManager.dataManager = [DataManager.dataManagerCopy0, DataManager.dataManagerCopy1, DataManager.dataManagerCopy2, DataManager.dataManagerCopy3]
-            DataManager.saveToUserDefaults(section: "DELEGATE")
-            print("\(DataManager.dataManagerCopy2) - DELEGATE")
+            DataManager.delegateDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.delegateDataManager)
+            DataManager.saveToUserDefaults()
+            print("\(DataManager.delegateDataManager) - DELEGATE")
         case "DELETE":
-            DataManager.dataManagerCopy3.append(todoData)
-            DataManager.dataManager = [DataManager.dataManagerCopy0, DataManager.dataManagerCopy1, DataManager.dataManagerCopy2, DataManager.dataManagerCopy3]
-            DataManager.saveToUserDefaults(section: "DELETE")
-            print("\(DataManager.dataManagerCopy3) - DELETE")
+            DataManager.deleteDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.deleteDataManager)
+            DataManager.saveToUserDefaults()
+            print("\(DataManager.deleteDataManager) - DELETE")
         default:
             return
         }
-        
+        DataManager.dataManager = [DataManager.doDataManager, DataManager.decideDataManager, DataManager.delegateDataManager, DataManager.deleteDataManager]
         navigationController?.popViewController(animated: true)
-    }
-
-    // 날짜 형식 변환 ✅
-    func dateFormatter() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy. M. d a hh:mm:ss"
-        formatter.locale = Locale(identifier: "ko_KR")
-        return formatter.string(from: Date())
     }
 }
 

@@ -18,10 +18,7 @@ class ToDoController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        DataManager.loadFromUserDefaults(section: "DO")
-        DataManager.loadFromUserDefaults(section: "DECIDE")
-        DataManager.loadFromUserDefaults(section: "DELEGATE")
-        DataManager.loadFromUserDefaults(section: "DELETE")
+        DataManager.loadFromUserDefaults()
         tableView.reloadData()
     }
 
@@ -37,7 +34,8 @@ extension ToDoController: SetupDelegateProtocol {
     func setup() {
         tableView.dataSource = self
         navigationItem.title = "할 일 작성"
-
+//        DataManager.loadFromUserDefaults()
+//        DataManager.saveToUserDefaults()
         navigationItem.rightBarButtonItem = addBarButtonItem
         addBarButtonItem.target = self
         addBarButtonItem.action = #selector(tappedAddButton(_:))
@@ -108,5 +106,18 @@ extension ToDoController: UITableViewDataSource {
         cell.isSelectedSwitch.isOn = false
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "DO"
+        } else if section == 1 {
+            return "DECIDE"
+        } else if section == 2 {
+            return "DELEGATE"
+        } else if section == 3 {
+            return "DELETE"
+        }
+        return ""
     }
 }
