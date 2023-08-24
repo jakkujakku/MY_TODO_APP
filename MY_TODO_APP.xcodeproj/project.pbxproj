@@ -22,6 +22,7 @@
 		4ED9E2422A96F4260057AC75 /* CompletionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2412A96F4260057AC75 /* CompletionController.swift */; };
 		4ED9E2442A96F4F40057AC75 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2432A96F4F40057AC75 /* ToDoCell.swift */; };
 		4ED9E2462A96F5070057AC75 /* CompletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2452A96F5070057AC75 /* CompletionCell.swift */; };
+		4ED9E2492A96F80D0057AC75 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2482A96F80D0057AC75 /* Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4ED9E2412A96F4260057AC75 /* CompletionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionController.swift; sourceTree = "<group>"; };
 		4ED9E2432A96F4F40057AC75 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		4ED9E2452A96F5070057AC75 /* CompletionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionCell.swift; sourceTree = "<group>"; };
+		4ED9E2482A96F80D0057AC75 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				4E98D4772A94DFF6007E115C /* DataManager.swift */,
 				4E98D4752A94DFEB007E115C /* MediaService.swift */,
+				4ED9E2482A96F80D0057AC75 /* Name.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				4ED9E2462A96F5070057AC75 /* CompletionCell.swift in Sources */,
 				4E98D4782A94DFF6007E115C /* DataManager.swift in Sources */,
 				4E98D45F2A94DF96007E115C /* AppDelegate.swift in Sources */,
+				4ED9E2492A96F80D0057AC75 /* Name.swift in Sources */,
 				4E98D4762A94DFEB007E115C /* MediaService.swift in Sources */,
 				4E98D4612A94DF96007E115C /* SceneDelegate.swift in Sources */,
 				4ED9E2422A96F4260057AC75 /* CompletionController.swift in Sources */,
