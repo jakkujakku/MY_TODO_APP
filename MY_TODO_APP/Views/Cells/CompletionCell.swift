@@ -7,4 +7,8 @@
 
 import UIKit
 
-class CompletionCell: UITableViewCell {}
+class CompletionCell: UITableViewCell {
+    @IBOutlet weak var completionLabel: UILabel!
+    @IBOutlet weak var isSelectedSwitch: UISwitch!
+//    func configure() {}
+}
