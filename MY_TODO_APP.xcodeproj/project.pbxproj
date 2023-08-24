@@ -15,6 +15,7 @@
 		4E98D46B2A94DF99007E115C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E98D4692A94DF99007E115C /* LaunchScreen.storyboard */; };
 		4E98D4762A94DFEB007E115C /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98D4752A94DFEB007E115C /* MediaService.swift */; };
 		4E98D4782A94DFF6007E115C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98D4772A94DFF6007E115C /* DataManager.swift */; };
+		4ED9E2322A96EB180057AC75 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9E2312A96EB180057AC75 /* Logo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4E98D46C2A94DF99007E115C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E98D4752A94DFEB007E115C /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
 		4E98D4772A94DFF6007E115C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4ED9E2312A96EB180057AC75 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				4E98D4672A94DF99007E115C /* Assets.xcassets */,
 				4E98D4692A94DF99007E115C /* LaunchScreen.storyboard */,
 				4E98D46C2A94DF99007E115C /* Info.plist */,
+				4ED9E2312A96EB180057AC75 /* Logo.jpg */,
 			);
 			path = MY_TODO_APP;
 			sourceTree = "<group>";
@@ -113,6 +116,8 @@
 			dependencies = (
 			);
 			name = MY_TODO_APP;
+			packageProductDependencies = (
+			);
 			productName = MY_TODO_APP;
 			productReference = 4E98D45B2A94DF96007E115C /* MY_TODO_APP.app */;
 			productType = "com.apple.product-type.application";
@@ -141,6 +146,8 @@
 				Base,
 			);
 			mainGroup = 4E98D4522A94DF96007E115C;
+			packageReferences = (
+			);
 			productRefGroup = 4E98D45C2A94DF96007E115C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E98D46B2A94DF99007E115C /* LaunchScreen.storyboard in Resources */,
+				4ED9E2322A96EB180057AC75 /* Logo.jpg in Resources */,
 				4E98D4682A94DF99007E115C /* Assets.xcassets in Resources */,
 				4E98D4662A94DF96007E115C /* Main.storyboard in Resources */,
 			);
