@@ -136,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				4ED9E2432A96F4F40057AC75 /* ToDoCell.swift */,
+				4ED9E2592A9779320057AC75 /* AlphaCell.swift */,
 				4ED9E2452A96F5070057AC75 /* CompletionCell.swift */,
 			);
 			path = Cells;
