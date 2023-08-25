@@ -13,6 +13,7 @@ class DataManager: Codable {
     static var decideDataManager = [ToDoData]()
     static var delegateDataManager = [ToDoData]()
     static var deleteDataManager = [ToDoData]()
+
     static var completionDataManager = [ToDoData]()
 
     static func saveToUserDefaults() {
@@ -20,7 +21,7 @@ class DataManager: Codable {
             dataManager = [doDataManager, decideDataManager, delegateDataManager, deleteDataManager]
             let encodedData = try JSONEncoder().encode(dataManager)
             UserDefaults.standard.set(encodedData, forKey: Utility.userDefaultsKey)
-            print("\(encodedData) 저장 했습니다.")
+            print("정상적으로 \(dataManager)를 저장 했습니다.")
         } catch {
             print("Error encoding data: \(error)")
         }
@@ -31,22 +32,31 @@ class DataManager: Codable {
             do {
                 dataManager = try JSONDecoder().decode([[ToDoData]].self, from: encodedData)
                 if dataManager.isEmpty == false {
-                    doDataManager = dataManager[0] // 신경써라... 아쎄이(동기화)
-                    decideDataManager = dataManager[1] // 신경써라... 아쎄이(동기화)
-                    delegateDataManager = dataManager[2] // 신경써라... 아쎄이(동기화)
-                    deleteDataManager = dataManager[3] // 신경써라... 아쎄이(동기화)
+                    doDataManager = dataManager[0]
+                    decideDataManager = dataManager[1]
+                    delegateDataManager = dataManager[2]
+                    deleteDataManager = dataManager[3]
                 } else {
                     doDataManager = []
                     decideDataManager = []
                     delegateDataManager = []
                     deleteDataManager = []
                 }
-
-                print("\(dataManager) 를 불러왔습니다.")
+                print("정상적으로 \(dataManager)를 불러왔습니다.")
             } catch {
                 print("Error decoding data: \(error)")
             }
         }
+    }
+
+    static func deleteUserDefaults(_ indexPath: IndexPath) {
+        DataManager.dataManager[indexPath.section].remove(at: indexPath.row)
+        doDataManager = dataManager[0]
+        decideDataManager = dataManager[1]
+        delegateDataManager = dataManager[2]
+        deleteDataManager = dataManager[3]
+        UserDefaults.standard.removeObject(forKey: Utility.userDefaultsKey)
+        print("정상적으로 \(dataManager) 삭제되었습니다.")
     }
 }
 

@@ -37,14 +37,22 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-GM-n2e">
                                                     <rect key="frame" x="329" y="9.9999999999999982" width="51" height="31.333333333333329"/>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ie-Cd-kGG">
+                                                    <rect key="frame" x="301" y="15.333333333333336" width="23" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fbH-GM-n2e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0ag-Ag-qn0" secondAttribute="trailing" constant="30" id="AgD-s3-GwB"/>
+                                                <constraint firstItem="9Ie-Cd-kGG" firstAttribute="centerY" secondItem="GUD-zn-Gva" secondAttribute="centerY" id="G3P-Ok-qaq"/>
                                                 <constraint firstItem="fbH-GM-n2e" firstAttribute="top" secondItem="GUD-zn-Gva" secondAttribute="top" constant="10" id="NIj-sh-jhf"/>
                                                 <constraint firstItem="fbH-GM-n2e" firstAttribute="centerY" secondItem="GUD-zn-Gva" secondAttribute="centerY" id="aE1-t2-Sof"/>
                                                 <constraint firstItem="0ag-Ag-qn0" firstAttribute="leading" secondItem="GUD-zn-Gva" secondAttribute="leading" constant="15" id="baX-HN-ZSc"/>
                                                 <constraint firstItem="0ag-Ag-qn0" firstAttribute="centerY" secondItem="GUD-zn-Gva" secondAttribute="centerY" id="blo-A2-eWv"/>
                                                 <constraint firstItem="0ag-Ag-qn0" firstAttribute="top" secondItem="GUD-zn-Gva" secondAttribute="top" constant="10" id="iVD-f4-QY8"/>
+                                                <constraint firstItem="fbH-GM-n2e" firstAttribute="leading" secondItem="9Ie-Cd-kGG" secondAttribute="trailing" constant="5" id="o7x-LJ-box"/>
                                                 <constraint firstAttribute="trailing" secondItem="fbH-GM-n2e" secondAttribute="trailing" constant="15" id="zAK-rv-qi5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -72,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idv-7u-Ex1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="410"/>
+            <point key="canvasLocation" x="1832.824427480916" y="409.85915492957747"/>
         </scene>
     </scenes>
     <resources>
