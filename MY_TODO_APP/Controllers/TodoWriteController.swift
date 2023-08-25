@@ -42,29 +42,24 @@ class TodoWriteController: UIViewController {
 
         switch selectedSection {
         case "DO":
-            DataManager.doDataManager.append(todoData)
-            DataManager.dataManager.append(DataManager.doDataManager)
+            DataManager.doDataManager.insert(todoData, at: 0)
             DataManager.saveToUserDefaults()
             print("\(DataManager.doDataManager) - DO")
         case "DECIDE":
-            DataManager.decideDataManager.append(todoData)
-            DataManager.dataManager.append(DataManager.decideDataManager)
+            DataManager.decideDataManager.insert(todoData, at: 0)
             DataManager.saveToUserDefaults()
             print("\(DataManager.decideDataManager) - DECIDE")
         case "DELEGATE":
-            DataManager.delegateDataManager.append(todoData)
-            DataManager.dataManager.append(DataManager.delegateDataManager)
+            DataManager.delegateDataManager.insert(todoData, at: 0)
             DataManager.saveToUserDefaults()
             print("\(DataManager.delegateDataManager) - DELEGATE")
         case "DELETE":
-            DataManager.deleteDataManager.append(todoData)
-            DataManager.dataManager.append(DataManager.deleteDataManager)
+            DataManager.deleteDataManager.insert(todoData, at: 0)
             DataManager.saveToUserDefaults()
             print("\(DataManager.deleteDataManager) - DELETE")
         default:
             return
         }
-        DataManager.dataManager = [DataManager.doDataManager, DataManager.decideDataManager, DataManager.delegateDataManager, DataManager.deleteDataManager]
         navigationController?.popViewController(animated: true)
     }
 }

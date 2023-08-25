@@ -27,7 +27,6 @@
 		4ED9E24D2A9735D50057AC75 /* CustomUIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E24C2A9735D50057AC75 /* CustomUIBarButtonItem.swift */; };
 		4ED9E2502A97539E0057AC75 /* WriteToDo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9E24E2A97539E0057AC75 /* WriteToDo.storyboard */; };
 		4ED9E2522A9756400057AC75 /* TodoWriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2512A9756400057AC75 /* TodoWriteController.swift */; };
-		4ED9E25A2A9779320057AC75 /* AlphaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9E2592A9779320057AC75 /* AlphaCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		4ED9E24C2A9735D50057AC75 /* CustomUIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIBarButtonItem.swift; sourceTree = "<group>"; };
 		4ED9E24F2A97539E0057AC75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MY_TODO_APP/Views/Base.lproj/WriteToDo.storyboard; sourceTree = "<group>"; };
 		4ED9E2512A9756400057AC75 /* TodoWriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoWriteController.swift; sourceTree = "<group>"; };
-		4ED9E2592A9779320057AC75 /* AlphaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				4ED9E2432A96F4F40057AC75 /* ToDoCell.swift */,
-				4ED9E2592A9779320057AC75 /* AlphaCell.swift */,
 				4ED9E2452A96F5070057AC75 /* CompletionCell.swift */,
 			);
 			path = Cells;
@@ -235,7 +232,6 @@
 				4ED9E2422A96F4260057AC75 /* CompletionController.swift in Sources */,
 				4ED9E2402A96F41B0057AC75 /* ToDoController.swift in Sources */,
 				4ED9E2442A96F4F40057AC75 /* ToDoCell.swift in Sources */,
-				4ED9E25A2A9779320057AC75 /* AlphaCell.swift in Sources */,
 				4ED9E24B2A97323A0057AC75 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
