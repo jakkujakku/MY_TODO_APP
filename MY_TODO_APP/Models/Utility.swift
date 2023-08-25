@@ -25,7 +25,8 @@ class Utility {
 
     // UserDefaultsKey
     static let userDefaultsKey = "userData"
-    
+    static let completionUserDefaultsKey = "completionData"
+
     // 날짜 형식 변환 ✅
     static func dateFormatter() -> String {
         let formatter = DateFormatter()

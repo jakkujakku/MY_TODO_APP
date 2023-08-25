@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //
 //  ToDoController.swift
 //  MY_TODO_APP
@@ -38,6 +38,7 @@ class ToDoController: UIViewController {
 extension ToDoController: SetupDelegateProtocol {
     func setup() {
         tableView.dataSource = self
+        tableView.delegate = self
         navigationItem.title = "할 일 작성"
         navigationItem.rightBarButtonItem = addBarButtonItem
         addBarButtonItem.target = self
@@ -65,22 +66,42 @@ extension ToDoController: UITableViewDataSource {
         cell.indexPath = indexPath
         cell.tableView = tableView
         cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
-
         return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "DO"
+            return "DO의 개수 \(DataManager.doDataManager.count)"
         } else if section == 1 {
-            return "DECIDE"
+            return "DECIDE의 개수 \(DataManager.decideDataManager.count)"
         } else if section == 2 {
-            return "DELEGATE"
+            return "DELEGATE의 개수 \(DataManager.delegateDataManager.count)"
         } else if section == 3 {
-            return "DELETE"
+            return "DELETE의 개수 \(DataManager.deleteDataManager.count)"
+        }
+        return ""
+    }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return "DO - 중요하고 긴급한 일"
+        } else if section == 1 {
+            return "DECIDE - 중요하지 않지만 긴급한 일"
+        } else if section == 2 {
+            return "DELEGATE - 중요하지만 긴급하지 않은 일"
+        } else if section == 3 {
+            return "DELETE - 중요하지도 긴급하지도 않은 일"
         }
         return ""
     }
 }
-=======
->>>>>>> 0635053 (교체 중)
+
+extension ToDoController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+}
