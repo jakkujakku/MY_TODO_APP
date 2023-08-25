@@ -7,10 +7,14 @@
 
 import UIKit
 
+// 셀 자체에서 상태 값이 변하는 것을 컨트롤러로 전달 -> 컨트롤러는 상태의 변화 인지하고, 셀을 삭제 여부 결정
+
 class ToDoController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private let addBarButtonItem = CustomUIBarButtonItem()
+    private var indexPathValue: IndexPath?
+    var cunrrentSwitchValue: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,6 @@ class ToDoController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         DataManager.loadFromUserDefaults()
-        DataManager.saveToUserDefaults()
         tableView.reloadData()
     }
 
@@ -28,15 +31,6 @@ class ToDoController: UIViewController {
         let sb = UIStoryboard(name: Utility.writeToDoStoryboard, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: Utility.todoWriteController) as? TodoWriteController else { return }
         navigationController?.pushViewController(vc, animated: true)
-//        DataManager.dataManager.removeAll()
-//        tableView.reloadData()
-//        UserDefaults.standard.removeObject(forKey: Utility.userDefaultsKey)
-//        print(DataManager.dataManager)
-//        DataManager.saveToUserDefaults()
-    }
-
-    func tapDeleteButton(data: ToDoData) {
-        DataManager.dataManager
     }
 }
 
@@ -62,12 +56,15 @@ extension ToDoController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = indexPath.section
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Utility.todoCellIdentifier, for: indexPath) as? ToDoCell else { return UITableViewCell() }
-
         let item = DataManager.dataManager[indexPath.section][indexPath.row]
         cell.todoLabel.text = item.title
         cell.isSelectedSwitch.isOn = false
+
+        cell.indexPath = indexPath
+        cell.tableView = tableView
+        cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
+
         return cell
     }
 

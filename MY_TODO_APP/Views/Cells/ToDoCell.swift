@@ -11,7 +11,18 @@ class ToDoCell: UITableViewCell {
     @IBOutlet weak var todoLabel: UILabel!
     @IBOutlet weak var isSelectedSwitch: UISwitch!
 
-//    func configure(data: ToDoData) {
-//        todoLabel.text = data.title
-//    }
+    var indexPath: IndexPath?
+    var tableView: UITableView?
+
+    @objc func isSelectedSwitchAction(_ sender: UISwitch) {
+        guard let indexPath = indexPath else { return }
+
+        if sender.isOn == true {
+            DataManager.deleteUserDefaults(indexPath)
+            tableView?.reloadData()
+            DataManager.saveToUserDefaults()
+        } else {
+            fatalError()
+        }
+    }
 }

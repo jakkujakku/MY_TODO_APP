@@ -10,5 +10,6 @@ import UIKit
 class CompletionCell: UITableViewCell {
     @IBOutlet weak var completionLabel: UILabel!
     @IBOutlet weak var isSelectedSwitch: UISwitch!
+    @IBOutlet weak var 
 //    func configure() {}
 }

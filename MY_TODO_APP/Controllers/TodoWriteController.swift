@@ -12,7 +12,6 @@ class TodoWriteController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
 
-    let maxValue = 2
     let pickerViewCount = 1
     var sectionName = ["DO", "DECIDE", "DELEGATE", "DELETE"]
     var selectedSection = ""
@@ -38,7 +37,6 @@ class TodoWriteController: UIViewController {
     @IBAction func tappedSaveButton(_ sender: UIButton) {
         guard let text = textField.text else { return }
         let todoData = ToDoData(title: text, date: Utility.dateFormatter(), section: selectedSection)
-        print(selectedSection)
 
         switch selectedSection {
         case "DO":
