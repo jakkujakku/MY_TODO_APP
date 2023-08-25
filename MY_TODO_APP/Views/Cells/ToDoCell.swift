@@ -16,8 +16,9 @@ class ToDoCell: UITableViewCell {
 
     @objc func isSelectedSwitchAction(_ sender: UISwitch) {
         guard let indexPath = indexPath else { return }
-
         if sender.isOn == true {
+            let item = DataManager.dataManager[indexPath.section][indexPath.row]
+            DataManager.completionDataManager.append(item)
             DataManager.deleteUserDefaults(indexPath)
             tableView?.reloadData()
             DataManager.saveToUserDefaults()

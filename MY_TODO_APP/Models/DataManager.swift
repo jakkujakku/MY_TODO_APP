@@ -50,7 +50,7 @@ class DataManager: Codable {
     }
 
     static func deleteUserDefaults(_ indexPath: IndexPath) {
-        DataManager.dataManager[indexPath.section].remove(at: indexPath.row)
+        dataManager[indexPath.section].remove(at: indexPath.row)
         doDataManager = dataManager[0]
         decideDataManager = dataManager[1]
         delegateDataManager = dataManager[2]

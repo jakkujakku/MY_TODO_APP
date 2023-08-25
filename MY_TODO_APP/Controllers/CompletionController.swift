@@ -10,6 +10,8 @@ import UIKit
 class CompletionController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    let importanceSignal = ["🔴", "🟠", "🟡", "🟢"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -23,7 +25,6 @@ class CompletionController: UIViewController {
 extension CompletionController: SetupDelegateProtocol {
     func setup() {
         tableView.dataSource = self
-        tableView.delegate = self
         navigationItem.title = "할 일 작성"
     }
 }
@@ -32,15 +33,39 @@ extension CompletionController: SetupDelegateProtocol {
 
 extension CompletionController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return DataManager.completionDataManager.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Utility.completionCellIdentifier, for: indexPath) as? CompletionCell else { return UITableViewCell() }
+        let item = DataManager.completionDataManager[indexPath.row]
+        let sectionItem = item.section
+
+        cell.completionLabel.text = item.title
+
+        switch sectionItem {
+        case "DO":
+            cell.importanceLabel.text = importanceSignal[0]
+        case "DECIDE":
+            cell.importanceLabel.text = importanceSignal[1]
+        case "DELEGATE":
+            cell.importanceLabel.text = importanceSignal[2]
+        case "DELETE":
+            cell.importanceLabel.text = importanceSignal[3]
+        default:
+            break
+        }
         return cell
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DataManager.completionDataManager.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
-
-// MARK: - UITableViewDelegate
-
-extension CompletionController: UITableViewDelegate {}
