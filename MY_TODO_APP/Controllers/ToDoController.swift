@@ -8,14 +8,19 @@
 
 import UIKit
 
-// 셀 자체에서 상태 값이 변하는 것을 컨트롤러로 전달 -> 컨트롤러는 상태의 변화 인지하고, 셀을 삭제 여부 결정
-
 class ToDoController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private let addBarButtonItem = CustomUIBarButtonItem()
     private var indexPathValue: IndexPath?
     var cunrrentSwitchValue: Bool = false
+
+    var isEditMode: Bool {
+        let searchController = navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        return isActive && isSearchBarHasText
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +34,6 @@ class ToDoController: UIViewController {
         tableView.reloadData()
     }
 
-    @objc func tappedAddButton(_ sender: UIBarButtonItem) {
-        print("눌렀다")
-        let sb = UIStoryboard(name: Utility.writeToDoStoryboard, bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: Utility.todoWriteController) as? TodoWriteController else { return }
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension ToDoController: SetupDelegateProtocol {
     func setup() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -64,8 +60,15 @@ extension ToDoController: SetupDelegateProtocol {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         searchController.navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
+    }
+
+    @objc func tappedAddButton(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: Utility.writeToDoStoryboard, bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: Utility.todoWriteController) as? TodoWriteController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -73,21 +76,20 @@ extension ToDoController: SetupDelegateProtocol {
 
 extension ToDoController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return DataManager.dataManager.count
+        return isEditMode ? DataManager.filterDatasource.count : DataManager.dataManager.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.dataManager[section].count
+        return isEditMode ? DataManager.filterDatasource[section].count : DataManager.dataManager[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Utility.todoCellIdentifier, for: indexPath) as? ToDoCell else { return UITableViewCell() }
-        let item = DataManager.dataManager[indexPath.section][indexPath.row]
-        cell.todoLabel.text = item.title
-        cell.isSelectedSwitch.isOn = false
-
+        cell.todoLabel.text = isEditMode ? DataManager.filterDatasource[indexPath.section][indexPath.row].title : DataManager.dataManager[indexPath.section][indexPath.row].title
         cell.indexPath = indexPath
         cell.tableView = tableView
+        cell.iseEditMode = isEditMode
+        cell.isSelectedSwitch.isOn = false
         cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
         return cell
     }
@@ -118,7 +120,6 @@ extension ToDoController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        
         if section == 0 {
             return "DO - 중요하고 긴급한 일 \(Signal.red.rawValue)"
         } else if section == 1 {
@@ -133,6 +134,10 @@ extension ToDoController: UITableViewDataSource {
 }
 
 extension ToDoController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(isEditing ? DataManager.filterDatasource[indexPath.row] : DataManager.dataManager[indexPath.section][indexPath.row])
+    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
@@ -142,4 +147,18 @@ extension ToDoController: UITableViewDelegate {
     }
 }
 
-extension ToDoController: UISearchBarDelegate {}
+extension ToDoController: UISearchBarDelegate {
+    override class func didChangeValue(forKey key: String) {
+        print(DataManager.filterDatasource.count)
+    }
+}
+
+extension ToDoController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        DataManager.filterDatasource = DataManager.dataManager.compactMap {
+            $0.filter { $0.title.contains(text) }
+        }
+        tableView.reloadData()
+    }
+}

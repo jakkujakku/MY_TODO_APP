@@ -22,6 +22,9 @@ class DataManager: Codable {
     static var completionDelegateData: [ToDoData] = []
     static var completionDeleteData: [ToDoData] = []
 
+    // filterDataSource
+    static var filterDatasource = dataManager
+
     static func saveToDoUserDefaults() {
         do {
             dataManager = [doData, decideData, delegateData, deleteData]
@@ -106,6 +109,10 @@ class DataManager: Codable {
         completionDeleteData = completionDataManager[3]
         UserDefaults.standard.removeObject(forKey: Utility.completionUserDefaultsKey)
         print("정상적으로 \(completionDataManager) 삭제되었습니다.")
+    }
+
+    static func deleteFilterDatasource(_ indexPath: IndexPath) {
+        DataManager.filterDatasource[indexPath.section].remove(at: indexPath.row)
     }
 }
 

@@ -26,12 +26,4 @@ class Utility {
     // UserDefaultsKey
     static let userDefaultsKey = "userData"
     static let completionUserDefaultsKey = "completionData"
-
-    // 날짜 형식 변환 ✅
-    static func dateFormatter() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy. M. d a hh:mm:ss"
-        formatter.locale = Locale(identifier: "ko_KR")
-        return formatter.string(from: Date())
-    }
 }

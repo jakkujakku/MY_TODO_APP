@@ -17,6 +17,11 @@ class MainController: UIViewController {
         setup()
     }
 
+    func setup() {
+        goToToDoButton.tintColor = .systemBlue
+        goToCompletionButton.tintColor = .systemPink
+    }
+
     @IBAction func tappedGoToToDoPageButton(_ sender: UIButton) {
         let sb = UIStoryboard(name: Utility.todoStoryboard, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: Utility.todoControllerIdentifier) as? ToDoController else { return }
@@ -30,9 +35,3 @@ class MainController: UIViewController {
     }
 }
 
-extension MainController: SetupDelegateProtocol {
-    func setup() {
-        goToToDoButton.tintColor = .systemBlue
-        goToCompletionButton.tintColor = .systemPink
-    }
-}
