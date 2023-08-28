@@ -22,6 +22,8 @@ class CompletionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        addSearchBar()
+        topViewUp()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +37,27 @@ extension CompletionController: SetupDelegateProtocol {
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.title = "할 일 작성"
+    }
+
+    // 스크롤시 서치바 보이게 하는 함수 ✅
+    func topViewUp() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+            // 상단에 서치바 올리기
+            self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.addSearchBar()
+            self.view.layoutIfNeeded()
+        })
+    }
+
+    // 서치바 추가 ✅
+    func addSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        // 검색컨트롤러는 검색하는 동안 네비게이션바에 가려지지않도록한다
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
     }
 }
 
@@ -119,3 +142,5 @@ extension CompletionController: UITableViewDelegate {
         return 30
     }
 }
+
+extension CompletionController: UISearchBarDelegate {}
