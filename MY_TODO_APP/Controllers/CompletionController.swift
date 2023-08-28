@@ -44,13 +44,13 @@ extension CompletionController: UITableViewDataSource {
         cell.completionLabel.text = item.title
 
         switch sectionItem {
-        case "DO":
+        case Section.do.rawValue:
             cell.importanceLabel.text = importanceSignal[0]
-        case "DECIDE":
+        case Section.decide.rawValue:
             cell.importanceLabel.text = importanceSignal[1]
-        case "DELEGATE":
+        case Section.delegate.rawValue:
             cell.importanceLabel.text = importanceSignal[2]
-        case "DELETE":
+        case Section.delete.rawValue:
             cell.importanceLabel.text = importanceSignal[3]
         default:
             break
