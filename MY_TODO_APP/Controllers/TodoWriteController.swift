@@ -49,19 +49,19 @@ class TodoWriteController: UIViewController {
         case Section.do.rawValue:
             DataManager.doData.insert(todoData, at: 0)
             DataManager.saveToDoUserDefaults()
-            print("\(DataManager.doData) - DO")
+            print("### \(DataManager.doData) - DO")
         case Section.decide.rawValue:
             DataManager.decideData.insert(todoData, at: 0)
             DataManager.saveToDoUserDefaults()
-            print("\(DataManager.decideData) - DECIDE")
+            print("### \(DataManager.decideData) - DECIDE")
         case Section.delegate.rawValue:
             DataManager.delegateData.insert(todoData, at: 0)
             DataManager.saveToDoUserDefaults()
-            print("\(DataManager.delegateData) - DELEGATE")
+            print("### \(DataManager.delegateData) - DELEGATE")
         case Section.delete.rawValue:
             DataManager.deleteData.insert(todoData, at: 0)
             DataManager.saveToDoUserDefaults()
-            print("\(DataManager.deleteData) - DELETE")
+            print("### \(DataManager.deleteData) - DELETE")
         default:
             return
         }
