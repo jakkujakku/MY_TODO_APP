@@ -18,10 +18,31 @@ class ToDoCell: UITableViewCell {
         guard let indexPath = indexPath else { return }
         if sender.isOn == true {
             let item = DataManager.dataManager[indexPath.section][indexPath.row]
-            DataManager.completionDataManager.append(item)
+
+            switch item.section {
+            case Section.do.rawValue:
+                DataManager.completionDoData.insert(item, at: 0)
+                DataManager.saveCompletionUserDefaults()
+                print("\(DataManager.completionDoData) - DO")
+            case Section.decide.rawValue:
+                DataManager.completionDecideData.insert(item, at: 0)
+                DataManager.saveCompletionUserDefaults()
+                print("\(DataManager.completionDecideData) - DECIDE")
+            case Section.delegate.rawValue:
+                DataManager.completionDelegateData.insert(item, at: 0)
+                DataManager.saveCompletionUserDefaults()
+                print("\(DataManager.completionDecideData) - DELEGATE")
+            case Section.delete.rawValue:
+                DataManager.completionDeleteData.insert(item, at: 0)
+                DataManager.saveCompletionUserDefaults()
+                print("\(DataManager.completionDecideData) - DELETE")
+            default:
+                return
+            }
+
             DataManager.deleteUserDefaults(indexPath)
             tableView?.reloadData()
-            DataManager.saveToUserDefaults()
+            DataManager.saveToDoUserDefaults()
         } else {
             fatalError()
         }

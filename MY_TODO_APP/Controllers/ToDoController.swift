@@ -23,7 +23,7 @@ class ToDoController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        DataManager.loadFromUserDefaults()
+        DataManager.loadFromToDoUserDefaults()
         tableView.reloadData()
     }
 
@@ -68,16 +68,28 @@ extension ToDoController: UITableViewDataSource {
         cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DataManager.deleteUserDefaults(indexPath)
+            DataManager.saveToDoUserDefaults()
+            tableView.reloadData()
+        }
+    }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "DO의 개수 \(DataManager.doDataManager.count)"
+            return "DO의 개수 \(DataManager.doData.count)"
         } else if section == 1 {
-            return "DECIDE의 개수 \(DataManager.decideDataManager.count)"
+            return "DECIDE의 개수 \(DataManager.decideData.count)"
         } else if section == 2 {
-            return "DELEGATE의 개수 \(DataManager.delegateDataManager.count)"
+            return "DELEGATE의 개수 \(DataManager.delegateData.count)"
         } else if section == 3 {
-            return "DELETE의 개수 \(DataManager.deleteDataManager.count)"
+            return "DELETE의 개수 \(DataManager.deleteData.count)"
         }
         return ""
     }

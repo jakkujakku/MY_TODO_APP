@@ -43,25 +43,25 @@ class TodoWriteController: UIViewController {
 
     @IBAction func tappedSaveButton(_ sender: UIButton) {
         guard let text = textField.text else { return }
-        let todoData = ToDoData(title: text, date: Utility.dateFormatter(), section: selectedSection)
+        let todoData = ToDoData(title: text, section: selectedSection)
 
         switch selectedSection {
         case Section.do.rawValue:
-            DataManager.doDataManager.insert(todoData, at: 0)
-            DataManager.saveToUserDefaults()
-            print("\(DataManager.doDataManager) - DO")
+            DataManager.doData.insert(todoData, at: 0)
+            DataManager.saveToDoUserDefaults()
+            print("\(DataManager.doData) - DO")
         case Section.decide.rawValue:
-            DataManager.decideDataManager.insert(todoData, at: 0)
-            DataManager.saveToUserDefaults()
-            print("\(DataManager.decideDataManager) - DECIDE")
+            DataManager.decideData.insert(todoData, at: 0)
+            DataManager.saveToDoUserDefaults()
+            print("\(DataManager.decideData) - DECIDE")
         case Section.delegate.rawValue:
-            DataManager.delegateDataManager.insert(todoData, at: 0)
-            DataManager.saveToUserDefaults()
-            print("\(DataManager.delegateDataManager) - DELEGATE")
+            DataManager.delegateData.insert(todoData, at: 0)
+            DataManager.saveToDoUserDefaults()
+            print("\(DataManager.delegateData) - DELEGATE")
         case Section.delete.rawValue:
-            DataManager.deleteDataManager.insert(todoData, at: 0)
-            DataManager.saveToUserDefaults()
-            print("\(DataManager.deleteDataManager) - DELETE")
+            DataManager.deleteData.insert(todoData, at: 0)
+            DataManager.saveToDoUserDefaults()
+            print("\(DataManager.deleteData) - DELETE")
         default:
             return
         }
