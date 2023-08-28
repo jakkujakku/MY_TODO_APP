@@ -120,14 +120,15 @@ extension CompletionController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
         if section == 0 {
-            return "DO - 중요하고 긴급한 일"
+            return "DO - 중요하고 긴급한 일 \(Signal.red.rawValue)"
         } else if section == 1 {
-            return "DECIDE - 중요하지 않지만 긴급한 일"
+            return "DECIDE - 중요하지 않지만 긴급한 일 \(Signal.orange.rawValue)"
         } else if section == 2 {
-            return "DELEGATE - 중요하지만 긴급하지 않은 일"
+            return "DELEGATE - 중요하지만 긴급하지 않은 일 \(Signal.yellow.rawValue)"
         } else if section == 3 {
-            return "DELETE - 중요하지도 긴급하지도 않은 일"
+            return "DELETE - 중요하지도 긴급하지도 않은 일 \(Signal.green.rawValue)"
         }
         return ""
     }

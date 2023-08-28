@@ -46,7 +46,7 @@ extension ToDoController: SetupDelegateProtocol {
         addBarButtonItem.target = self
         addBarButtonItem.action = #selector(tappedAddButton(_:))
     }
-    
+
     // 스크롤시 서치바 보이게 하는 함수 ✅
     func topViewUp() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
@@ -56,7 +56,7 @@ extension ToDoController: SetupDelegateProtocol {
             self.view.layoutIfNeeded()
         })
     }
-    
+
     // 서치바 추가 ✅
     func addSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
@@ -65,7 +65,7 @@ extension ToDoController: SetupDelegateProtocol {
         searchController.searchBar.placeholder = "Search"
         searchController.navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
-        self.navigationItem.searchController = searchController
+        navigationItem.searchController = searchController
     }
 }
 
@@ -91,11 +91,11 @@ extension ToDoController: UITableViewDataSource {
         cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             DataManager.deleteUserDefaults(indexPath)
@@ -118,14 +118,15 @@ extension ToDoController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
         if section == 0 {
-            return "DO - 중요하고 긴급한 일"
+            return "DO - 중요하고 긴급한 일 \(Signal.red.rawValue)"
         } else if section == 1 {
-            return "DECIDE - 중요하지 않지만 긴급한 일"
+            return "DECIDE - 중요하지 않지만 긴급한 일 \(Signal.orange.rawValue)"
         } else if section == 2 {
-            return "DELEGATE - 중요하지만 긴급하지 않은 일"
+            return "DELEGATE - 중요하지만 긴급하지 않은 일 \(Signal.yellow.rawValue)"
         } else if section == 3 {
-            return "DELETE - 중요하지도 긴급하지도 않은 일"
+            return "DELETE - 중요하지도 긴급하지도 않은 일 \(Signal.green.rawValue)"
         }
         return ""
     }
