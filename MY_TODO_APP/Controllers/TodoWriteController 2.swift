@@ -7,20 +7,14 @@
 
 import UIKit
 
-enum Section: String {
-    case `do` = "DO"
-    case decide = "DECIDE"
-    case delegate = "DELEGATE"
-    case delete = "DELETE"
-}
-
 class TodoWriteController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
 
+    let maxValue = 2
     let pickerViewCount = 1
-    var sectionName: [Section] = [.do, .decide, .delegate, .delete]
+    var sectionName = ["DO", "DECIDE", "DELEGATE", "DELETE"]
     var selectedSection = ""
 
     override func viewDidLoad() {
@@ -34,7 +28,7 @@ class TodoWriteController: UIViewController {
 
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         saveButton.isEnabled = false
-        selectedSection = sectionName[0].rawValue
+        selectedSection = sectionName[0]
     }
 
     @objc private func textFieldDidChange() {
@@ -44,27 +38,33 @@ class TodoWriteController: UIViewController {
     @IBAction func tappedSaveButton(_ sender: UIButton) {
         guard let text = textField.text else { return }
         let todoData = ToDoData(title: text, date: Utility.dateFormatter(), section: selectedSection)
+        print(selectedSection)
 
         switch selectedSection {
-        case Section.do.rawValue:
-            DataManager.doDataManager.insert(todoData, at: 0)
+        case "DO":
+            DataManager.doDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.doDataManager)
             DataManager.saveToUserDefaults()
             print("\(DataManager.doDataManager) - DO")
-        case Section.decide.rawValue:
-            DataManager.decideDataManager.insert(todoData, at: 0)
+        case "DECIDE":
+            DataManager.decideDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.decideDataManager)
             DataManager.saveToUserDefaults()
             print("\(DataManager.decideDataManager) - DECIDE")
-        case Section.delegate.rawValue:
-            DataManager.delegateDataManager.insert(todoData, at: 0)
+        case "DELEGATE":
+            DataManager.delegateDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.delegateDataManager)
             DataManager.saveToUserDefaults()
             print("\(DataManager.delegateDataManager) - DELEGATE")
-        case Section.delete.rawValue:
-            DataManager.deleteDataManager.insert(todoData, at: 0)
+        case "DELETE":
+            DataManager.deleteDataManager.append(todoData)
+            DataManager.dataManager.append(DataManager.deleteDataManager)
             DataManager.saveToUserDefaults()
             print("\(DataManager.deleteDataManager) - DELETE")
         default:
             return
         }
+        DataManager.dataManager = [DataManager.doDataManager, DataManager.decideDataManager, DataManager.delegateDataManager, DataManager.deleteDataManager]
         navigationController?.popViewController(animated: true)
     }
 }
@@ -79,12 +79,12 @@ extension TodoWriteController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sectionName[row].rawValue
+        return sectionName[row]
     }
 }
 
 extension TodoWriteController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedSection = sectionName[row].rawValue
+        selectedSection = sectionName[row]
     }
 }
