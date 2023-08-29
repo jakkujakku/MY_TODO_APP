@@ -88,7 +88,7 @@ extension ToDoController: UITableViewDataSource {
         cell.todoLabel.text = isEditMode ? DataManager.filterDatasource[indexPath.section][indexPath.row].title : DataManager.dataManager[indexPath.section][indexPath.row].title
         cell.indexPath = indexPath
         cell.tableView = tableView
-        cell.iseEditMode = isEditMode
+        cell.isEditMode = isEditMode
         cell.isSelectedSwitch.isOn = false
         cell.isSelectedSwitch.addTarget(cell, action: #selector(cell.isSelectedSwitchAction(_:)), for: .valueChanged)
         return cell

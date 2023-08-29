@@ -112,7 +112,7 @@ class DataManager: Codable {
     }
 
     static func deleteFilterDatasource(_ indexPath: IndexPath) {
-        DataManager.filterDatasource[indexPath.section].remove(at: indexPath.row)
+        filterDatasource[indexPath.section].remove(at: indexPath.row)
     }
 }
 
