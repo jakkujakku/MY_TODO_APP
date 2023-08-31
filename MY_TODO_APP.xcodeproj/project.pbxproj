@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E7A14FA2AA07141005FCD9C /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7A14F92AA07141005FCD9C /* MediaService.swift */; };
 		4E98D45F2A94DF96007E115C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98D45E2A94DF96007E115C /* AppDelegate.swift */; };
 		4E98D4612A94DF96007E115C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98D4602A94DF96007E115C /* SceneDelegate.swift */; };
 		4E98D4632A94DF96007E115C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98D4622A94DF96007E115C /* MainController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E7A14F92AA07141005FCD9C /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
 		4E98D45B2A94DF96007E115C /* MY_TODO_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MY_TODO_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E98D45E2A94DF96007E115C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E98D4602A94DF96007E115C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4E98D4772A94DFF6007E115C /* DataManager.swift */,
+				4E7A14F92AA07141005FCD9C /* MediaService.swift */,
 				4ED9E2482A96F80D0057AC75 /* Utility.swift */,
 			);
 			path = Models;
@@ -220,6 +223,7 @@
 				4E98D4782A94DFF6007E115C /* DataManager.swift in Sources */,
 				4ED9E24D2A9735D50057AC75 /* CustomUIBarButtonItem.swift in Sources */,
 				4E98D45F2A94DF96007E115C /* AppDelegate.swift in Sources */,
+				4E7A14FA2AA07141005FCD9C /* MediaService.swift in Sources */,
 				4ED9E2492A96F80D0057AC75 /* Utility.swift in Sources */,
 				4E98D4612A94DF96007E115C /* SceneDelegate.swift in Sources */,
 				4ED9E2422A96F4260057AC75 /* CompletionController.swift in Sources */,
