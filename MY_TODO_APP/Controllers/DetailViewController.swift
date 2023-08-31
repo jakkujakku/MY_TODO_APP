@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
 
     let service = MediaService(configuration: .default)
     let apiKey = "live_cvQixQ9hpKO5HQ05AGdsH2kPlR1FTwbPJuvUN4iGpNovqY1eoQnXUY0m5m8iBvWa"
@@ -19,12 +20,15 @@ class DetailViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        indicatorView.startAnimating()
         service.fetchProfile(apiKey: apiKey, completion: { result in
             switch result {
             case .success(let completion):
                 guard let completionImage = completion.first else { return }
                 DispatchQueue.main.async {
                     self.imageView.load(url: URL(string: completionImage.url) ?? URL(fileURLWithPath: ""))
+                    self.indicatorView.stopAnimating()
+                    self.indicatorView.isHidden = true
                 }
                 print("### \(completion)")
             case .failure(let error):
@@ -37,6 +41,8 @@ class DetailViewController: UIViewController {
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 10
         imageView.frame.size = .init(width: 400, height: 400)
+        
+        indicatorView.isHidden = false
     }
 }
 

@@ -29,9 +29,12 @@ class ToDoController: UIViewController {
         topViewUp()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         DataManager.loadFromToDoUserDefaults()
-        tableView.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {

@@ -24,9 +24,12 @@ class CompletionController: UIViewController {
         setup()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         DataManager.loadFromCompletionUserDefaults()
-        tableView.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
