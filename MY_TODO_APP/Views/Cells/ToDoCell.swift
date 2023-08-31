@@ -13,11 +13,7 @@ class ToDoCell: UITableViewCell {
 
     var indexPath: IndexPath?
     var tableView: UITableView?
-<<<<<<< HEAD
-    var iseEditMode: Bool?
-=======
     var isEditMode: Bool?
->>>>>>> master
 
     @objc func isSelectedSwitchAction(_ sender: UISwitch) {
         guard let indexPath = indexPath else { return }
@@ -28,15 +24,10 @@ class ToDoCell: UITableViewCell {
 
             switch item.section {
             case Section.do.rawValue:
-<<<<<<< HEAD
-                DataManager.deleteFilterDatasource(indexPath)
-                DataManager.deleteUserDefaults(indexPath)
-=======
                 if isEditMode == true {
                     DataManager.deleteFilterDatasource(indexPath)
                 }
 
->>>>>>> master
                 DataManager.completionDoData.insert(item, at: 0)
                 DataManager.deleteUserDefaults(indexPath)
 
@@ -44,42 +35,27 @@ class ToDoCell: UITableViewCell {
                 DataManager.saveToDoUserDefaults()
                 print("### \(DataManager.completionDoData) - DO")
             case Section.decide.rawValue:
-<<<<<<< HEAD
-                DataManager.deleteFilterDatasource(indexPath)
-                DataManager.deleteUserDefaults(indexPath)
-=======
                 if isEditMode == true {
                     DataManager.deleteFilterDatasource(indexPath)
                 }
->>>>>>> master
                 DataManager.completionDecideData.insert(item, at: 0)
                 DataManager.deleteUserDefaults(indexPath)
                 DataManager.saveCompletionUserDefaults()
                 DataManager.saveToDoUserDefaults()
                 print("### \(DataManager.completionDecideData) - DECIDE")
             case Section.delegate.rawValue:
-<<<<<<< HEAD
-                DataManager.deleteFilterDatasource(indexPath)
-                DataManager.deleteUserDefaults(indexPath)
-=======
                 if isEditMode == true {
                     DataManager.deleteFilterDatasource(indexPath)
                 }
->>>>>>> master
                 DataManager.completionDelegateData.insert(item, at: 0)
                 DataManager.deleteUserDefaults(indexPath)
                 DataManager.saveCompletionUserDefaults()
                 DataManager.saveToDoUserDefaults()
                 print("### \(DataManager.completionDecideData) - DELEGATE")
             case Section.delete.rawValue:
-<<<<<<< HEAD
-                DataManager.deleteFilterDatasource(indexPath)
-                DataManager.deleteUserDefaults(indexPath)
-=======
                 if isEditMode == true {
                     DataManager.deleteFilterDatasource(indexPath)
                 }
->>>>>>> master
                 DataManager.completionDeleteData.insert(item, at: 0)
                 DataManager.deleteUserDefaults(indexPath)
                 DataManager.saveCompletionUserDefaults()
