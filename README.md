@@ -2,12 +2,7 @@
 iOS 앱개발 숙련 개인 과제 - ToDO 어플 만들기
 
 ## 결과 이미지
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.43.41.png" width="40%" height="40%">
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.39.49.png" width="40%" height="40%">
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.18.png" width="40%" height="40%">
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.29.png" width="40%" height="40%">
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.49.png" width="40%" height="40%">
-<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.42.00.png" width="40%" height="40%">
+<img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.43.41.png" width="40%" height="40%"><img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.39.49.png" width="40%" height="40%"><img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.18.png" width="40%" height="40%"><img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.29.png" width="40%" height="40%"><img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.41.49.png" width="40%" height="40%"><img src="Simulator Screenshot - iPhone 14 Pro - 2023-09-01 at 12.42.00.png" width="40%" height="40%">
 
 ## 프로젝트 기간🗓️ : 2023.08.22 - 2023.09.01
 
