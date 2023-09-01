@@ -34,6 +34,14 @@ class ToDoController: UIViewController {
         tableView.reloadData()
     }
 
+<<<<<<< HEAD
+=======
+    override func viewDidDisappear(_ animated: Bool) {
+        DataManager.saveToDoUserDefaults()
+        DataManager.saveCompletionUserDefaults()
+    }
+
+>>>>>>> todo
     func setup() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -135,7 +143,13 @@ extension ToDoController: UITableViewDataSource {
 
 extension ToDoController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+<<<<<<< HEAD
         print(isEditing ? DataManager.filterDatasource[indexPath.row] : DataManager.dataManager[indexPath.section][indexPath.row])
+=======
+        let sb = UIStoryboard(name: Utility.detailStoryboard, bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: Utility.detailViewController) as? DetailViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
+>>>>>>> todo
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
