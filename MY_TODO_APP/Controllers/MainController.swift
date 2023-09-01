@@ -34,7 +34,3 @@ class MainController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> todo

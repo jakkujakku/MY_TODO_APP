@@ -118,10 +118,7 @@
 				4ED9E2392A96F3AA0057AC75 /* ToDo.storyboard */,
 				4ED9E23C2A96F3C10057AC75 /* Completion.storyboard */,
 				4ED9E24E2A97539E0057AC75 /* WriteToDo.storyboard */,
-<<<<<<< HEAD
-=======
 				4E7A14FE2AA08A05005FCD9C /* Detail.storyboard */,
->>>>>>> todo
 				4ED9E24C2A9735D50057AC75 /* CustomUIBarButtonItem.swift */,
 				4ED9E2472A96F6CA0057AC75 /* Cells */,
 			);
@@ -132,10 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				4E98D4772A94DFF6007E115C /* DataManager.swift */,
-<<<<<<< HEAD
-=======
 				4E7A14F92AA07141005FCD9C /* MediaService.swift */,
->>>>>>> todo
 				4ED9E2482A96F80D0057AC75 /* Utility.swift */,
 			);
 			path = Models;

@@ -29,14 +29,11 @@ class CompletionController: UIViewController {
         tableView.reloadData()
     }
 
-<<<<<<< HEAD
-=======
     override func viewDidDisappear(_ animated: Bool) {
         DataManager.saveToDoUserDefaults()
         DataManager.saveCompletionUserDefaults()
     }
 
->>>>>>> todo
     func setup() {
         tableView.dataSource = self
         tableView.delegate = self

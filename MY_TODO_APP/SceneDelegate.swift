@@ -20,13 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillResignActive(_ scene: UIScene) {}
 
-<<<<<<< HEAD
-    func sceneWillEnterForeground(_ scene: UIScene) {}
-=======
     func sceneWillEnterForeground(_ scene: UIScene) {
         sleep(1)
     }
->>>>>>> todo
 
     func sceneDidEnterBackground(_ scene: UIScene) {}
 }
