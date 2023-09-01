@@ -155,9 +155,7 @@ extension ToDoController: UITableViewDelegate {
 }
 
 extension ToDoController: UISearchBarDelegate {
-    override class func didChangeValue(forKey key: String) {
-        print(DataManager.filterDatasource.count)
-    }
+    override class func didChangeValue(forKey key: String) {}
 }
 
 extension ToDoController: UISearchResultsUpdating {
