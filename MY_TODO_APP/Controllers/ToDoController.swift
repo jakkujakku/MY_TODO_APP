@@ -31,6 +31,7 @@ class ToDoController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         DataManager.loadFromToDoUserDefaults()
+        DataManager.loadFromCompletionUserDefaults()
         tableView.reloadData()
     }
 
