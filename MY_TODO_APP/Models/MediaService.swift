@@ -23,6 +23,8 @@ struct Media: Codable {
 }
 
 final class MediaService {
+    static let apiKey = "live_cvQixQ9hpKO5HQ05AGdsH2kPlR1FTwbPJuvUN4iGpNovqY1eoQnXUY0m5m8iBvWa"
+
     let session: URLSession
 
     init(configuration: URLSessionConfiguration) {

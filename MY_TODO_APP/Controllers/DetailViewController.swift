@@ -12,7 +12,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
 
     let service = MediaService(configuration: .default)
-    let apiKey = "live_cvQixQ9hpKO5HQ05AGdsH2kPlR1FTwbPJuvUN4iGpNovqY1eoQnXUY0m5m8iBvWa"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +20,7 @@ class DetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         indicatorView.startAnimating()
-        service.fetchProfile(apiKey: apiKey, completion: { result in
+        service.fetchProfile(apiKey: MediaService.apiKey, completion: { result in
             switch result {
             case .success(let completion):
                 guard let completionImage = completion.first else { return }
@@ -38,10 +37,10 @@ class DetailViewController: UIViewController {
     }
 
     private func setupUI() {
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 10
         imageView.frame.size = .init(width: 400, height: 400)
-        
+
         indicatorView.isHidden = false
     }
 }
